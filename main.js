@@ -16,7 +16,12 @@ const template = [
             })
             const file = filePaths[0];
             const contents = fs.readFileSync(file, 'utf-8');
-            win.webContents.send("file", contents);
+            win.webContents.send("fileOpened", {
+              contents,
+              filePath: file,
+             }
+            );
+            
           
           
         }
