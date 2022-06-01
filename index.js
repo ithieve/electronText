@@ -1,3 +1,8 @@
-const fs = require("fs")
+const fs = require("fs");
+const { ipcRenderer } = require("electron");
 
-console.log('Hello')
+ipcRenderer.on("file",(event,content) =>{
+    console.log("we have some : ", content);
+    document.getElementById("code").value = content;
+    }
+);
